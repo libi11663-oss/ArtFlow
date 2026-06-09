@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtNest 接案畫室</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="ArtNest 首頁">
+        <span class="brand-mark">A</span>
+        <span>ArtNest</span>
+      </a>
+      <nav class="topnav" aria-label="主要導覽">
+        <a href="#market">找繪師</a>
+        <a href="#guardrails">交易保障</a>
+        <a href="#studio">繪師上架</a>
+        <a href="#revenue">平台收益</a>
+      </nav>
+      <button class="ghost-button" id="sellerCta" type="button">上架服務</button>
+    </header>
+
+    <main>
+      <section class="workbench" id="market">
+        <div class="workbench-copy">
+          <p class="eyebrow">繪師接案 / Logo 設計 / 客製畫作</p>
+          <h1>把創作服務做成可以直接下單的商品。</h1>
+          <p class="summary">
+            買家選服務、看方案、填需求後下單；平台只管成交抽成、廣告曝光與訂單流程。
+          </p>
+          <div class="search-row" role="search">
+            <label class="search-field" for="searchInput">
+              <span>搜尋</span>
+              <input id="searchInput" type="search" placeholder="Q版頭像、Logo、封面插畫..." />
+            </label>
+            <label class="select-field" for="sortSelect">
+              <span>排序</span>
+              <select id="sortSelect">
+                <option value="featured">精選優先</option>
+                <option value="priceAsc">價格低到高</option>
+                <option value="ratingDesc">評價高到低</option>
+                <option value="speedAsc">交付最快</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="visual-panel" aria-label="平台視覺">
+          <img src="assets/artist-marketplace-banner.png" alt="繪師接案平台工作區視覺" />
+          <div class="signal-card">
+            <strong>今日熱門</strong>
+            <span>Logo 設計、VTuber 頭像、商業插畫</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="layout">
+        <aside class="filters" aria-label="篩選服務">
+          <div class="filter-block">
+            <h2>分類</h2>
+            <div class="segmented" id="categoryFilters" role="tablist" aria-label="分類篩選"></div>
+          </div>
+
+          <div class="filter-block">
+            <h2>預算</h2>
+            <label class="range-field" for="budgetRange">
+              <input id="budgetRange" type="range" min="300" max="10000" step="100" value="5000" />
+              <span>最高 NT$<b id="budgetValue">5000</b></span>
+            </label>
+          </div>
+
+          <div class="filter-block">
+            <h2>買家需求</h2>
+            <label class="check-row">
+              <input id="commercialOnly" type="checkbox" />
+              <span>可商用授權</span>
+            </label>
+            <label class="check-row">
+              <input id="fastOnly" type="checkbox" />
+              <span>7 天內交付</span>
+            </label>
+          </div>
+
+          <div class="filter-block calculator" id="revenue">
+            <h2>平台抽成估算</h2>
+            <label for="commissionRange">抽成 <b id="commissionValue">12%</b></label>
+            <input id="commissionRange" type="range" min="5" max="25" value="12" />
+            <label for="adFeeInput">廣告費 / 月</label>
+            <input id="adFeeInput" type="number" min="0" step="100" value="1200" />
+            <p id="revenueText">選一個服務後會顯示估算。</p>
+          </div>
+        </aside>
+
+        <section class="results" aria-live="polite">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Service Shelf</p>
+              <h2>技能商品</h2>
+            </div>
+            <span id="resultCount">0 項</span>
+          </div>
+          <div class="service-grid" id="serviceGrid"></div>
+        </section>
+      </section>
+
+      <section class="guardrails" id="guardrails">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Trust Layer</p>
+            <h2>站內保障與防繞單</h2>
+          </div>
+          <span>3 道防護</span>
+        </div>
+        <div class="guard-grid">
+          <article class="guard-card">
+            <span class="guard-number">01</span>
+            <h3>交易保障</h3>
+            <p>買家付款進平台保管，確認完稿後撥款；訂單、修改、交付紀錄全部留在站內。</p>
+            <div class="guard-pills">
+              <span>款項保管</span>
+              <span>爭議處理</span>
+              <span>評價綁成交</span>
+            </div>
+          </article>
+          <article class="guard-card">
+            <span class="guard-number">02</span>
+            <h3>站外交易規則</h3>
+            <p>訂單完成前不允許交換 LINE、IG、電話、Email、網址、匯款帳號或私下付款訊息。</p>
+            <div class="guard-pills">
+              <span>訊息攔截</span>
+              <span>違規警示</span>
+              <span>曝光降權</span>
+            </div>
+          </article>
+          <article class="guard-card">
+            <span class="guard-number">03</span>
+            <h3>風險偵測</h3>
+            <p>委託需求與上架文案會即時掃描，高風險內容先擋下，必要時送人工審核。</p>
+            <div class="guard-pills">
+              <span>聯絡方式偵測</span>
+              <span>站外付款偵測</span>
+              <span>審核佇列</span>
+            </div>
+          </article>
+        </div>
+        <div class="trust-flow" aria-label="站內交易流程">
+          <span>下單付款</span>
+          <span>平台保管</span>
+          <span>站內交付</span>
+          <span>確認撥款</span>
+        </div>
+      </section>
+
+      <section class="studio" id="studio">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Creator Console</p>
+            <h2>繪師上架欄位</h2>
+          </div>
+        </div>
+        <form class="listing-form" id="listingForm">
+          <label>
+            服務名稱
+            <input name="title" required maxlength="34" placeholder="例如：幫你畫商用 Q 版頭像" />
+          </label>
+          <label>
+            分類
+            <select name="category">
+              <option>Q版頭像</option>
+              <option>Logo設計</option>
+              <option>商業插畫</option>
+              <option>封面設計</option>
+            </select>
+          </label>
+          <label>
+            起價
+            <input name="price" required type="number" min="300" step="100" placeholder="1200" />
+          </label>
+          <label>
+            交付天數
+            <input name="days" required type="number" min="1" max="60" placeholder="7" />
+          </label>
+          <label class="wide">
+            服務說明
+            <textarea name="description" required maxlength="120" placeholder="包含草稿、修改次數、商用授權範圍..."></textarea>
+          </label>
+          <div class="policy-notice wide" id="listingPolicyNotice" aria-live="polite">
+            上架內容會檢查站外聯絡與付款資訊。
+          </div>
+          <button class="primary-button" type="submit">新增到商品架</button>
+        </form>
+      </section>
+    </main>
+
+    <aside class="order-panel" id="orderPanel" aria-hidden="true">
+      <button class="close-button" id="closePanel" type="button" aria-label="關閉">×</button>
+      <div id="orderContent"></div>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
